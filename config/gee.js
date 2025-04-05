@@ -4,9 +4,10 @@ const fs = require("fs");
 const path = require("path");
 require("dotenv").config();
 
-const geeKeyPath = path.resolve(process.env.GOOGLE_APPLICATION_CREDENTIALS);
-const geeCredentials = JSON.parse(fs.readFileSync(geeKeyPath, "utf8"));
+// Parse the JSON credentials from the environment variable
+const geeCredentials = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS);
 
+// Use GoogleAuth for authentication
 const auth = new GoogleAuth({
   credentials: geeCredentials,
   scopes: ["https://www.googleapis.com/auth/earthengine"],
@@ -16,12 +17,15 @@ async function initializeGEE() {
   try {
     console.log("🔍 Initializing Google Earth Engine...");
 
+    // Obtain the auth client
     await auth.getClient();
     console.log("✅ Google Auth Client Obtained.");
 
+    // Authenticate with Google Earth Engine
     ee.data.authenticateViaPrivateKey(geeCredentials, () => {
       console.log("✅ Earth Engine Authenticated");
 
+      // Initialize Earth Engine
       ee.initialize(null, null, () => {
         console.log("🌍 Earth Engine Initialized");
       }, (err) => {
