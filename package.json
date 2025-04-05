@@ -11,5 +11,26 @@
     "firebase": "^11.5.0",
     "firebase-admin": "^11.11.1",
     "google-auth-library": "^9.15.1"
-  }
+  },
+  "engines": {
+    "node": "v20.9.0"
+  },
+  "name": "agriland",
+  "version": "1.0.0",
+  "description": "to convert lands into fertile",
+  "main": "script.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swathi2006/AgriLand.git"
+  },
+  "author": "swathi vutukuri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swathi2006/AgriLand/issues"
+  },
+  "homepage": "https://github.com/swathi2006/AgriLand#readme"
 }
