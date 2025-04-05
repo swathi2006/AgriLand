@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>header</title>
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <img src="/logo.png"/>
+            <h1>AgriLand</h1>
+        </div>
+        <div class="navbar">
+            <ol class="nav-links">
+            <li><a class="item" href="/">Home</a></li>
+            <li><a class="item" href="/location">Check My Land</a></li>
+            <li><a class="item" href="/mentor">Book a mentor</a></li>
+         <% if(typeof user === "undefined"||!user) { %>
+           <li> <a id="signup" href="/signup">Signup</a></li>
+            <li><a id="login" href="/login">Login</a></li>
+            <% } 
+        else {%>
+             <li><a id="logout "href="/logout">Logout</a></li>
+            <% } %>
+            </ol>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        </div>
+    </header>
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+    </script>
+    
+</body>
+</html>

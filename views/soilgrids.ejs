@@ -1,0 +1,26 @@
+
+  <%- include("includes/head.ejs") %>
+
+  <body>
+    <%- include("includes/header.ejs") %>
+    <div id="loader" style="display:none;">⏳ Fetching latest soil and weather info...</div>
+    <form id="roadmap_form" action="/geminires" method="POST">
+        <input type="hidden" name="data" id="data"/>
+        <input type="hidden" name="landCover" value="<%=landCover%>" />
+        <input type="hidden" name="temperature" value="<%=temperature%>" />
+        <input type="hidden" name="precipitation" value="<%=precipitation%>" />
+        <input type="hidden" name="soilMoisture" value="<%=soilMoisture%>" />
+        <input type="hidden" name="elevation" value="<%=elevation%>" />
+        <input type="hidden" name="slope" value="<%=slope%>" />
+        <input type="hidden" name="ndvi" value="<%=ndvi%>"/>
+        <button id="roadmap_btn" >Generate Roadmap</button>
+    </form>
+    <p id="para"></p>
+ <script >
+  const latitude = '<%- lat %>';
+  const longitude = '<%- lng %>';
+  const WT_API_KEY='<%- WT_API_KEY %>';
+  </script>
+ 
+  <script src="soilgrids.js" ></script>
+ 

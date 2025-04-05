@@ -1,0 +1,23 @@
+<!-- signup.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("includes/head.ejs") %>
+   <!-- ✅ Firebase v8 style CDN -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+</head>
+<body>
+    <%- include("includes/header.ejs") %>
+    <h2>Signup Form</h2>
+    <form class="form" id="signupForm">
+        <input type="text" id="name" placeholder="Your Name" required><br>
+        <input type="email" id="email" placeholder="Email" required><br>
+        <input type="password" id="password" placeholder="Password" required><br>
+        <button type="submit">Sign Up</button>
+    </form>
+
+    <script src="signup.js"> </script>
+</body>
+</html>

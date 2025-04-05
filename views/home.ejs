@@ -1,0 +1,22 @@
+<%- include("includes/head.ejs") %>
+
+<body>
+    <% if(alert==1){ %>
+        <div id="custom-alert" class="alert">
+            <span class="alert-message">Logged Out</span>
+            <span class="close-btn" onclick="hideAlert()">&times;</span>
+        </div>
+    <%}%>
+    <%- include("includes/header.ejs",{user :user }) %>
+    <section class="body">
+       <h2>Transforming  Barren Lands Into Thriving Fields </h2>
+       <p id="para-1">-Get Personalised Guidance</p>
+       
+       <p id="para-2">Locate Your Land And Get Personalised Roadmap </p>
+      <button id="locate_btn"> <a  href="/location">Locate Land</a> </button>
+    </section>
+    <script>function hideAlert() {
+        document.getElementById("custom-alert").style.display = "none";
+    }
+    </script>
+</body>

@@ -1,0 +1,17 @@
+<%- include("includes/head.ejs") %>
+
+<body>
+  <%- include("includes/header.ejs") %>
+
+  <div class="container" style="max-width: 800px; margin: auto; padding: 2rem;">
+    <h2 style="margin-bottom: 1rem;"><%= title %></h2>
+    <div class="response-box" style="white-space: pre-wrap; background: #f7f7f7; padding: 1rem; border-radius: 10px;">
+      <%= response %>
+    </div>
+    <br />
+    <button onclick="history.back()" class="back-btn" style="margin-top: 1rem; background: #28a745; padding: 0.5rem 1rem; border-radius: 5px; color: white; border: none;">
+        ⬅ Back to Previous Page
+      </button>
+      
+  </div>
+</body>

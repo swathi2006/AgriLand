@@ -1,0 +1,27 @@
+
+    <%- include("includes/head.ejs") %>
+ 
+<body>
+    <%- include("includes/header.ejs",{user :user }) %>
+
+      <h1 style="color:darkcyan;margin-top:1rem">Locate your Land</h1>
+
+      <input type="text" id="address" placeholder="Enter land address..." />
+      <button id="locate_address"onclick="searchAddress()">Locate</button>
+
+      <form method="POST" action="/coordinates">
+            <input type="hidden" id="latInput" name="lat" />
+            <input type="hidden" id="lngInput" name="lng" />
+            <div id="map"></div>
+            <div id="coordinates">
+              <span style="display: none;" id="lat"></span>  <span style="display: none;" id="lng"></span>
+            </div>
+            <button id="submit_cor"type="submit">Submit Location</button>
+       </form>
+
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDFT9sKPdAkRJCu_YhAPRoMMWHHw9wBs8&callback=initMap&libraries=marker&loading=async " >  
+  </script>
+  
+  <script src="location.js"></script>
+</body>

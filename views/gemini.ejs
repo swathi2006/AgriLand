@@ -1,0 +1,52 @@
+<%- include("includes/head.ejs") %>
+
+<body id="geminibody">
+  <%- include("includes/header.ejs") %>
+
+  <div id="resultsContainer" class="grid">
+    <% const cards = ["🌱 Soil & Land Classification", "🛠 Soil Improvement Plan", "💧 Irrigation Strategy", "🌾 Crop Suggestions", "📅 Conversion Roadmap"]; %>
+    <% cards.forEach((title, i) => { %>
+      <form method="POST" action="/geminidetail"  class="card-form">
+
+        <input type="hidden" name="index" value="<%= i %>" />
+        <input type="hidden" name="soildata" value='<%= JSON.stringify(soilData) %>' />
+        <input type="hidden" name="landCover" value="<%= landCover %>" />
+        <input type="hidden" name="ndvi" value="<%= ndvi %>" />
+        <input type="hidden" name="temperature" value="<%= temperature %>" />
+        <input type="hidden" name="soilMoisture" value="<%= soilMoisture %>" />
+        <input type="hidden" name="elevation" value="<%= elevation %>" />
+        <input type="hidden" name="slope" value="<%= slope %>" />
+        <input type="hidden" name="precipitation" value="<%= precipitation %>" />
+
+        <button type="submit" class="card" id="card-<%= i %>">
+          <h3 style="color:#8e1717"><%= title %></h3>
+          <div class="response">Click to open</div>
+        </button>
+      </form>
+    <% }); %>
+  </div>
+
+  <style>
+    .card-form {
+      margin: 0;
+    }
+
+    .card {
+      cursor: pointer;
+      border: 2px solid #ddd;
+      padding: 1.5rem 1rem;
+      background: #f9f9f9;
+      border-radius: 10px;
+      transition: all 0.2s;
+    }
+
+    .card:hover {
+      background: #e7f7e7;
+    }
+
+    .response {
+      font-size: 0.9rem;
+      color:bisque;
+    }
+  </style>
+</body>

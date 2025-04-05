@@ -1,0 +1,30 @@
+
+
+<%- include("includes/head.ejs") %>
+<%- include("includes/header.ejs", { user }) %>
+<div class="box">
+    <h1 style="color:#483F3A;">Available Mentors</h1>
+    <div class="mentor-list">
+        <% mentors.forEach(mentor => { %>
+            <div class="mentor-card">
+                <h2 style="color:chocolate"><%= mentor.name %></h2>
+                <p ><strong style="font-size:1.3rem;color:darkgoldenrod;">Expertise:</strong> <%= mentor.expertise %></p>
+                <p><strong style="font-size:1.3rem;color:darkgoldenrod">Availability:</strong> <%= mentor.availability %></p>
+                <form action="/book" method="POST">
+                    <input type="hidden" name="mentorId" value="<%= mentor.id %>">
+                    
+                    <!-- Add Date Picker -->
+                    <label style="font-size: 1.2rem;color:darkgoldenrod ;" for="date">Select Date:</label>
+                    <input type="date" id="date" name="date" required>
+                
+                    <!-- Add Time Picker -->
+                    <label style="font-size: 1.2rem;color:darkgoldenrod ;" for="time">Select Time:</label>
+                    <input type="time" id="time" name="time" required>
+                
+                    <button type="submit">Book Session</button>
+                </form>
+                
+            </div>
+        <% }) %>
+    </div>
+</div>
