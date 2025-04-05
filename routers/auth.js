@@ -3,6 +3,9 @@ const router = express.Router();
 const admin = require("firebase-admin");
 const db = admin.firestore();
 
+const settings = { timestampsInSnapshots: true };
+db.settings(settings);
+
 // POST route to store user after signup
 router.post("/signup", async (req, res) => {
   const { uid, name, email } = req.body;
