@@ -42,6 +42,10 @@ build/Release
 node_modules/
 jspm_packages/
 
+#sensitive files
+serviceAccountKey.json
+gee-key.json
+
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 
