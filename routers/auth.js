@@ -6,6 +6,9 @@ const db = admin.firestore();
 const settings = { timestampsInSnapshots: true };
 db.settings(settings);
 
+router.get("/signup",(req,res) => {
+  res.render("signup.ejs");
+}
 // POST route to store user after signup
 router.post("/signup", async (req, res) => {
   const { uid, name, email } = req.body;
