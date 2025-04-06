@@ -51,7 +51,7 @@ router.get("/mentor", checkAuth, async (req, res) => {
 
 // Book mentor (dummy for now)
 router.post("/book", async (req, res) => {
-  res.render("book");
+  res.render("book",{user: req.session.user || null });
 });
 
 module.exports = router;
