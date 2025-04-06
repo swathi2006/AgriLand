@@ -335,23 +335,18 @@ h1{
         color: #555;
     }
 
+  /* gemini.ejs */
+
 
     #geminibody {
         font-family: Arial, sans-serif;
         background-color: #f4f4f4;
-        padding: 20px;
+        padding: 2rem;
     }
-    #resultsContainer {
-        max-width: 800px;
-        margin: 0 auto;
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
+   
     .response-card {
         background: #fff;
-        padding: 15px;
+        padding: 2rem;
         border-left: 5px solid #4CAF50;
         border-radius: 8px;
         margin-bottom: 20px;
@@ -372,8 +367,113 @@ h1{
         font-weight: bold;
         display: none;
     }
+    #form-container {
+       flex:2;
+       
+
+    }
+    #resultsContainer {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        display : flex;
+        flex-wrap: wrap;
 
 
+    }
+
+   /* Chatbot styling */
+    #chatbot-container {
+      width: 100%;
+      max-width: 400px;
+      padding: 1.5rem;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #chatbot-header {
+      text-align: center;
+      font-size: 1.6rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    #chatbox {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 50vh; /* Use viewport height */
+      max-height: 50vh;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      overflow-y: auto;  /* Enable scrolling when content overflows */
+      background-color: #f9f9f9;
+    }
+
+    #messages {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      overflow-y: auto;  /* Allow scrolling within the messages */
+      flex-grow: 1; /* Allow the message container to grow */
+    }
+
+    #input-container {
+      display: flex;
+      gap: 1rem;
+    }
+
+   
+    #user-message {
+      flex-grow: 1;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+     
+      
+    }
+
+    #send-btn {
+      padding: 1rem 1.5rem;
+      background-color: #be1313;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    #send-btn:hover {
+      background-color: #b31818;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      #main-container {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      #chatbot-container {
+        max-width: 100%;
+      }
+
+      #user-message {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+      }
+
+      #send-btn {
+        font-size: 0.9rem;
+        padding: 0.rem 1.2rem;
+      }
+    }
     /*  soilgrids.ejs*/
     .data-container {
         background-color:rgba(233, 184, 144,.3);
@@ -439,11 +539,13 @@ h1{
   
       .card {
         cursor: pointer;
-        border: 2px solid #ddd;
-        padding: 1rem;
+        border: .2rem solid #ddd;
+        padding: 1rem ;
         background: #f9f9f9;
         border-radius: 10px;
         transition: all 0.2s;
+        width:20rem;
+        margin:.5rem
       }
   
       .card:hover {
@@ -453,7 +555,9 @@ h1{
       .response {
         font-size: 0.9rem;
         color: red;
+        padding:1rem;
       }
+      
     @media (max-width: 600px) {
         .box {
             width: 90%;
