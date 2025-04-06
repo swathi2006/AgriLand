@@ -1,52 +1,115 @@
 <%- include("includes/head.ejs") %>
-
 <body id="geminibody">
-  <%- include("includes/header.ejs") %>
+  <%- include("includes/header.ejs", { user: user }) %>
 
-  <div id="resultsContainer" class="grid">
-    <% const cards = ["🌱 Soil & Land Classification", "🛠 Soil Improvement Plan", "💧 Irrigation Strategy", "🌾 Crop Suggestions", "📅 Conversion Roadmap"]; %>
-    <% cards.forEach((title, i) => { %>
-      <form method="POST" action="/geminidetail"  class="card-form">
+  
+    <!-- Results Section -->
+    <div id="resultsContainer" class="grid">
+      <div id="form-container">
+      <% const cards = ["🌱 Soil & Land Classification", "🛠 Soil Improvement Plan", "💧 Irrigation Strategy", "🌾 Crop Suggestions", "📅 Conversion Roadmap"]; %>
+      <% cards.forEach((title, i) => { %>
+        <form method="POST" action="/geminidetail" class="card-form">
+          <input type="hidden" name="index" value="<%= i %>" />
+          <input type="hidden" name="soildata" value='<%= JSON.stringify(soilData) %>' />
+          <input type="hidden" name="landCover" value="<%= landCover %>" />
+          <input type="hidden" name="ndvi" value="<%= ndvi %>" />
+          <input type="hidden" name="temperature" value="<%= temperature %>" />
+          <input type="hidden" name="soilMoisture" value="<%= soilMoisture %>" />
+          <input type="hidden" name="elevation" value="<%= elevation %>" />
+          <input type="hidden" name="slope" value="<%= slope %>" />
+          <input type="hidden" name="precipitation" value="<%= precipitation %>" />
+          
+          <button type="submit" class="card" id="card-<%= i %>">
+            <h3 style="color:#8e1717"><%= title %></h3>
+            <div class="response">Click to open</div>
+          </button>
+        </form>
+      <% }); %>
+      </div>
 
-        <input type="hidden" name="index" value="<%= i %>" />
-        <input type="hidden" name="soildata" value='<%= JSON.stringify(soilData) %>' />
-        <input type="hidden" name="landCover" value="<%= landCover %>" />
-        <input type="hidden" name="ndvi" value="<%= ndvi %>" />
-        <input type="hidden" name="temperature" value="<%= temperature %>" />
-        <input type="hidden" name="soilMoisture" value="<%= soilMoisture %>" />
-        <input type="hidden" name="elevation" value="<%= elevation %>" />
-        <input type="hidden" name="slope" value="<%= slope %>" />
-        <input type="hidden" name="precipitation" value="<%= precipitation %>" />
-
-        <button type="submit" class="card" id="card-<%= i %>">
-          <h3 style="color:#8e1717"><%= title %></h3>
-          <div class="response">Click to open</div>
-        </button>
-      </form>
-    <% }); %>
+      <!-- AI Chatbot Section -->
+    <div id="chatbot-container">
+      <div id="chatbot-header">
+        <h3>AI Assistant</h3>
+      </div>
+      <div id="chatbox">
+        <div id="messages"></div>
+        <div id="input-container">
+          <input type="text" id="user-message" placeholder="Type your message..." />
+          <button id="send-btn">Send</button>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <style>
-    .card-form {
-      margin: 0;
-    }
+    </div>
 
-    .card {
-      cursor: pointer;
-      border: 2px solid #ddd;
-      padding: 1.5rem 1rem;
-      background: #f9f9f9;
-      border-radius: 10px;
-      transition: all 0.2s;
-    }
+    
 
-    .card:hover {
-      background: #e7f7e7;
-    }
 
-    .response {
-      font-size: 0.9rem;
-      color:bisque;
-    }
-  </style>
+  <script>
+  document.getElementById("send-btn").addEventListener("click", function() {
+      const userMessage = document.getElementById("user-message").value;
+      
+      if (userMessage.trim()) {
+        const messagesContainer = document.getElementById("messages");
+
+        // Append the user's message to the chatbox
+        const userMessageDiv = document.createElement("div");
+        userMessageDiv.textContent = `You: ${userMessage}`;
+        messagesContainer.appendChild(userMessageDiv);
+
+        // Scroll to the bottom of the chat after appending the message
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+        // Clear input field
+        document.getElementById("user-message").value = "";
+
+        // Simulate loading message while waiting for AI response
+        const aiResponseDiv = document.createElement("div");
+        aiResponseDiv.textContent = `AI: I'm analyzing your input...`;
+        messagesContainer.appendChild(aiResponseDiv);
+        
+        // Scroll to the bottom after AI's response
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+        // Prepare the soil data to send along with the user message
+       
+
+        // Send user message and soil data to backend
+        fetch('/chatbot', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }, body: JSON.stringify({
+    message: userMessage,
+    soilData: {
+      soildata: document.querySelector('input[name="soildata"]').value,
+      temperature: document.querySelector('input[name="temperature"]').value,
+      precipitation: document.querySelector('input[name="precipitation"]').value,
+      elevation: document.querySelector('input[name="elevation"]').value,
+      slope: document.querySelector('input[name="slope"]').value,
+      soilMoisture: document.querySelector('input[name="soilMoisture"]').value,
+      landCover: document.querySelector('input[name="landCover"]').value,
+      ndvi: document.querySelector('input[name="ndvi"]').value
+    }})
+        })
+        .then(response => response.json())
+        .then(data => {
+          
+          // Update AI response with the reply from Gemini
+          aiResponseDiv.textContent = `AI: ${data.reply}`;
+
+          // Scroll to the bottom after AI response
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          aiResponseDiv.textContent = "AI: Sorry, I couldn't process your request.";
+        });
+      }
+    });
+  </script>
+
 </body>
+
