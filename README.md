@@ -76,41 +76,41 @@ AgriLand/
 ├── script.js        # Main Express backend entry point
 
 
-### Screenshots
+## Screenshots
 
-# 🏠 Homepage
+### 🏠 Homepage
 
 ![Homepage](public/screenshots/homepage.png)
 
 ---
 
 
-# 📝 Signup Page
+### 📝 Signup Page
 
 ![Signup](public/screenshots/signup.png)
 
 
 ---
 
-# 🗺️ Land Location Selection
+### 🗺️ Land Location Selection
 
 ![Google Maps](public/screenshots/googlemaps.png)
 
 ---
 
-# 🧪 Soil Data Result
+### 🧪 Soil Data Result
 
 ![Soil Data](public/screenshots/soildata.png)
 
 ---
 
-# 🧾 Final Results Page
+### 🧾 Final Results Page
 
 ![Results](public/screenshots/results.png)
 
 ---
 
-# 🧑‍🏫 Mentor Booking Page
+### 🧑‍🏫 Mentor Booking Page
 
 ![Mentors](public/screenshots/mentors.png)
 
