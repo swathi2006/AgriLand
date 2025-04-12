@@ -1,6 +1,8 @@
 #  AgriLand - Barren Land to Cultivable Land Conversion 
 
-AgriLand is a smart web application designed to help transform barren lands into fertile, cultivable lands using satellite data, soil analysis, real-time climate conditions, and AI-generated solutions. The platform empowers users by providing expert recommendations, mentorship sessions, and detailed roadmaps based on their selected land coordinates.
+AgriLand is a smart web application designed to assist in improving all types of agricultural lands — from barren lands to low-yield or underutilized lands — by using satellite data, soil analysis, real-time climate conditions, and AI-generated solutions.
+
+The platform empowers users by providing expert recommendations, mentorship sessions, and personalized improvement roadmaps based on their selected land coordinates. Whether you're looking to reclaim barren land or enhance fertile fields, AgriLand supports sustainable and data-driven agricultural practices.
 
 ##  Project Highlights
 
@@ -133,8 +135,38 @@ AgriLand/
   - Multilingual support 
 
 
-💬 Project Purpose
-AgriLand helps landowners and farmers make informed decisions about land reclamation by analyzing land data and suggesting affordable solutions. It also connects them with mentors for guidance, fostering sustainable agriculture practices.
+## 💬 Project Purpose
+  - AgriLand helps landowners and farmers make informed decisions about land reclamation by analyzing land data and 
+   suggesting affordable solutions. It also connects them with mentors for guidance, fostering sustainable agriculture 
+   practices.
+
+## 🔗 Live Demo
+[Visit AgriLand](https://agriland.onrender.com/))
+
+## 🎥 Demo Video
+[Watch Demo](https://youtu.be/UdzBB2wg0Mo?si=ifp0Wm7d034lCxxv)
+
+## 🧪 Run Locally
+
+1. Clone the repository:
+   https://github.com/swathi2006/AgriLand.git
+
+2. Install dependencies:
+   npm install
+
+3. Add your Firebase and API config in `/config` folder.
+
+4. Start the server:
+   node script.js
+   
+
+
+
+## 🙌 Acknowledgements
+A huge shoutout to all the amazing open-source tools, APIs, mentors, and communities that helped shape AgriLand into reality.
+Built with 💚, code, and lots of coffee by Swathi for the Google Solution Challenge 2025.
+let’s make barren lands bloom again 🌱✨
+
 
 
 
