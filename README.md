@@ -93,18 +93,18 @@ List of available mentors, with an option to book a session based on selected da
 
 
 🎯 Future Improvements
->> AI-based crop prediction
->> Fertilizer calculator tool
->> Land monitoring alerts
->> Chat-based mentor sessions
->> Community forum for farmers so that they can share their results and 
+   AI-based crop prediction
+   Fertilizer calculator tool
+   Land monitoring alerts
+   Chat-based mentor sessions
+   Community forum for farmers so that they can share their results and 
    opinions
->> AI-model training using historical data
->> Mobile app integration
->> IOT and Real time monitoring
->> Progress Tracking
->> Government and NGO Parternships
->> Multilingual support 
+   AI-model training using historical data
+   Mobile app integration
+   IOT and Real time monitoring
+   Progress Tracking
+   Government and NGO Parternships
+   Multilingual support 
 
 
 💬 Project Purpose
