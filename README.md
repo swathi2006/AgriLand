@@ -76,18 +76,44 @@ AgriLand/
 ├── script.js        # Main Express backend entry point
 
 
-## 📸 Screenshots
-🌍 Homepage
-This is the landing page where users can explore AgriLand and its purpose.
+### Screenshots
 
-📍 Location Selector
-Users can select their land location on an interactive Google Map.
+# 🏠 Homepage
 
-🧪 Soil Analysis Result
-Displays the soil properties and weather data 
+![Homepage](public/screenshots/homepage.png)
 
-🧑‍🏫 Mentor Booking Page
-List of available mentors, with an option to book a session based on selected date and time.
+---
+
+
+# 📝 Signup Page
+
+![Signup](public/screenshots/signup.png)
+
+
+---
+
+# 🗺️ Land Location Selection
+
+![Google Maps](public/screenshots/googlemaps.png)
+
+---
+
+# 🧪 Soil Data Result
+
+![Soil Data](public/screenshots/soildata.png)
+
+---
+
+# 🧾 Final Results Page
+
+![Results](public/screenshots/results.png)
+
+---
+
+# 🧑‍🏫 Mentor Booking Page
+
+![Mentors](public/screenshots/mentors.png)
+
 
 
 
